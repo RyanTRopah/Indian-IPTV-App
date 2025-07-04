@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: your-service-name
+    env: python
+    build: .
+    port: 8000
+    healthcheck:
+      path: /
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    envVars:
+      - key: VARIABLE_NAME
+        value: variable-value
+    envFiles:
+      - .env
+    autoDeploy: true
+    pullRequestPreviews:
+      enabled: true
+      
